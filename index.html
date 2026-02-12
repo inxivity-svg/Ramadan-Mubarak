@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Saba</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #f0f4ff, #d0e8ff);
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-text {
+      font-size: 3rem;
+      font-weight: 700;
+      opacity: 0;
+      white-space: nowrap;
+      transition: all 1s ease-out;
+      text-align: center;
+    }
+
+    /* BACKGROUND WRAP FOR TEXT */
+    .slide-text .text-bg {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* LEFT TO RIGHT */
+    .slide-left {
+      transform: translateX(-150%);
+    }
+    .slide-left.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* RIGHT TO LEFT */
+    .slide-right {
+      transform: translateX(150%);
+    }
+    .slide-right.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* SECTION COLORS */
+    section:nth-child(odd) {
+      background: #f0f4ff;
+    }
+    section:nth-child(even) {
+      background: #d0e8ff;
+    }
+
+    /* "Made by Jarif" footer section */
+    .footer {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .slide-text {
+        font-size: 2rem;
+      }
+      .slide-text .text-bg {
+        padding: 15px 20px;
+      }
+      .footer {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <div class="slide-text slide-left">
+      <span class="text-bg">Hey Saba !</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-right">
+      <span class="text-bg">Ramadan is coming 👽</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-left">
+      <span class="text-bg">Time to be Good !</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-right">
+      <span class="text-bg">Wishing you a peaceful and blessed month in advance!</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-left">
+      <span class="text-bg">Get ready for all the iftar treats 😋</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-right">
+      <span class="text-bg">I want a iftar treat btw 😒</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-left">
+      <span class="text-bg">Brace yourself for 30 days of no snacks before sunset 😎</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-right">
+      <span class="text-bg">May Allah bless you</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="slide-text slide-left">
+      <span class="text-bg">Made with ❤️ by Jarif</span>
+    </div>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide-text');
+
+    function checkSlide() {
+      const triggerBottom = window.innerHeight / 5 * 4;
+
+      slides.forEach(slide => {
+        const slideTop = slide.getBoundingClientRect().top;
+
+        if(slideTop < triggerBottom) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkSlide);
+    window.addEventListener('load', checkSlide);
+  </script>
+
+</body>
+</html>
