@@ -26,25 +26,27 @@
       align-items: center;
       overflow: hidden;
       position: relative;
-      padding: 0 10px;
+      padding: 0 20px;
     }
 
     .slide-text {
-      font-size: 2.5rem; /* slightly smaller for mobile */
+      font-size: 2.5rem;
       font-weight: 700;
       opacity: 0;
-      white-space: nowrap;
       transition: all 1s ease-out;
       text-align: center;
+      max-width: 90%; /* allow wrapping */
+      line-height: 1.2;
     }
 
     /* BACKGROUND WRAP FOR TEXT */
     .slide-text .text-bg {
       display: inline-block;
       background: rgba(255, 255, 255, 0.85);
-      padding: 15px 25px; /* smaller padding for mobile */
+      padding: 15px 25px;
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      word-wrap: break-word;
     }
 
     /* LEFT TO RIGHT */
@@ -80,9 +82,10 @@
       color: #555;
     }
 
+    /* MOBILE ADJUSTMENTS */
     @media (max-width: 768px) {
       .slide-text {
-        font-size: 1.8rem; /* smaller on phones */
+        font-size: 1.8rem;
       }
       .slide-text .text-bg {
         padding: 12px 18px;
@@ -172,4 +175,3 @@
 
 </body>
 </html>
-
